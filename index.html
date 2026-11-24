@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#0d413a" name="theme-color"/>
+<title>МЕТАБОЛИКА 0.4.3 — фото еды и баланс дня</title>
+<style>
+:root{--bg:#eff6f1;--ink:#17352e;--muted:#668078;--line:#deebe3;--green:#087d59;--green-dark:#065843;--mint:#e4f5eb;--blue:#e8f3ff;--violet:#f1edff;--warn:#fff3dd;--white:#fff;--shadow:0 16px 60px #06432b17}*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;background:radial-gradient(circle at 8% 10%,#cdebd9,transparent 40%),radial-gradient(circle at 92% 72%,#dbe5fa,transparent 43%),#eef5f0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #84ccab;outline-offset:2px}button:disabled{opacity:.5;cursor:not-allowed}.shell{width:min(1100px,100%);min-height:100dvh;margin:auto;display:grid;grid-template-columns:minmax(250px,360px) minmax(320px,490px);gap:54px;align-items:center;justify-content:center;padding:25px}.pitch{padding:14px}.brandlogo{display:flex;gap:12px;align-items:center;font-weight:900;font-size:22px;letter-spacing:.7px}.emblem{display:grid;place-items:center;width:49px;height:49px;border-radius:15px;background:linear-gradient(135deg,#057f56,#08a681);color:#fff;font-size:28px;box-shadow:0 8px 22px #087d5933}.pitch h1{font-size:clamp(30px,3.5vw,47px);line-height:1.1;letter-spacing:-1.8px;margin:27px 0 13px}.pitch p{color:var(--muted);line-height:1.7;font-size:15px}.pitch .motto{font-weight:750;color:var(--green-dark);font-size:16px;line-height:1.6;margin-top:25px}.feature{display:flex;align-items:center;gap:11px;margin:11px 0;font-size:13px;font-weight:650;color:#486a5e}.feature span{width:27px;height:27px;border-radius:10px;background:#d9ede2;display:grid;place-items:center}.phone{background:#f8faf8;border:7px solid #183b34;outline:1px solid #a0b5ab;box-shadow:var(--shadow),0 15px 50px #15423519;border-radius:35px;max-height:900px;height:min(850px,calc(100dvh - 40px));min-height:610px;display:flex;flex-direction:column;overflow:hidden;position:relative}.top{display:flex;align-items:center;justify-content:space-between;padding:23px 21px 14px;background:#fbfdfb;border-bottom:1px solid #edf2ee}.top .title{font-size:15px;font-weight:900;letter-spacing:.7px}.top .sub{font-size:11px;color:var(--muted);margin-top:3px}.circle{border:1px solid var(--line);border-radius:13px;background:white;width:38px;height:38px;font-size:17px}.scroll{padding:0 17px 24px;overflow:auto;scrollbar-width:thin;flex:1;scroll-behavior:smooth}.screen{display:none}.screen.active{display:block}.tabbar{display:grid;grid-template-columns:repeat(4,1fr);padding:9px 5px max(14px,env(safe-area-inset-bottom));border-top:1px solid var(--line);background:#fff}.tab{border:0;background:transparent;display:grid;place-items:center;gap:3px;font-size:10px;color:#789087;padding:5px;border-radius:14px}.tab span{font-size:22px;line-height:1.2}.tab.active{background:#e5f5ea;color:var(--green-dark);font-weight:800}h2{font-size:24px;letter-spacing:-.75px;line-height:1.18;margin:22px 4px 5px}.subline{color:var(--muted);font-size:12px;line-height:1.55;margin:0 4px 15px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:11px;box-shadow:0 2px 11px #184d2a07}.card.soft{background:var(--mint)}.card.violet{background:var(--violet);border-color:#e4dff5}.card.blue{background:var(--blue);border-color:#daebf8}.card.warm{background:var(--warn);border-color:#f0e1c6}.hero{background:linear-gradient(125deg,#0a5140,#159672);color:white;border:0;border-radius:23px;padding:21px;margin:14px 0;position:relative;overflow:hidden}.hero:after{content:'✦';position:absolute;font-size:130px;color:#ffffff15;right:-8px;top:-55px}.hero .up{opacity:.8;font-size:11px;font-weight:650}.hero .big{font-size:37px;font-weight:900;margin:5px 0;letter-spacing:-1px}.hero .big small{font-size:15px;font-weight:500;opacity:.85}.hero .desc{font-size:12px;line-height:1.6;max-width:285px;opacity:.91}.hero .goal{display:flex;gap:12px;font-size:11px;margin-top:13px;align-items:center}.track{flex:1;height:9px;border-radius:10px;background:#ffffff38;overflow:hidden}.fill{width:0;height:100%;background:#c5f8dd;border-radius:10px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;text-align:left;display:block;color:inherit;min-height:99px}.tile .i{font-size:25px}.tile .num{font-size:21px;font-weight:850;margin:7px 0 1px}.tile .lbl{font-size:11px;color:var(--muted)}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:6px;margin:19px 3px 9px}.sectionhead b{font-size:15px}.sectionhead small{font-size:11px;color:var(--muted)}.waterrow{display:flex;gap:6px;margin-top:12px}.waterrow button{flex:1;border:1px solid #bee2df;background:#fff;border-radius:12px;color:#146c79;padding:11px 4px;font-weight:800;font-size:12px}.minirow{display:flex;align-items:center;justify-content:space-between;gap:9px}.hint{font-size:11px;line-height:1.55;color:var(--muted)}.small{font-size:12px;line-height:1.6}.label{display:block;font-size:12px;font-weight:800;margin:0 0 6px}.field{width:100%;border:1px solid #d2e3da;border-radius:12px;padding:12px;background:#fff;color:var(--ink);min-width:0;font-size:15px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.primary{background:var(--green);color:#fff;border:0;border-radius:14px;padding:14px 16px;font-weight:800;font-size:13px}.primary.full,.outline.full{width:100%}.outline{border:1px solid #b6d8c5;background:#fff;color:var(--green-dark);padding:12px 14px;border-radius:14px;font-size:12px;font-weight:750}.subtlebtn{border:0;background:transparent;color:var(--green-dark);padding:6px;font-weight:750;font-size:11px}.buttonrow{display:flex;gap:8px}.buttonrow>*{flex:1}.buttonrow .primary,.buttonrow .outline{padding:12px 8px}.meal{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);padding:11px;border-radius:17px;margin-bottom:8px}.foodico{height:52px;width:53px;background:#eef5e9;border-radius:13px;display:grid;place-items:center;font-size:26px;flex:none}.mealmain{flex:1;min-width:0}.mealmain small{display:block;font-size:10px;color:var(--muted);margin-bottom:3px}.mealmain b{display:block;font-size:13px;line-height:1.3}.mealmain p{font-size:11px;color:var(--muted);margin:4px 0 0}.arrowbtn{border:0;background:#e7f5ea;color:#127658;font-size:18px;border-radius:11px;padding:10px 12px}.banner{background:#e5f4ea;padding:15px;border-radius:17px;font-size:12px;line-height:1.6;margin:11px 0}.photozone{background:linear-gradient(135deg,#e4f7ec,#f1f7ff);border:1.5px dashed #92cdb0;border-radius:19px;padding:18px;text-align:center}.photozone .ico{font-size:38px}.photozone .preview{display:none;width:100%;max-height:230px;object-fit:contain;border-radius:15px;margin:12px auto}.photozone strong{display:block;font-size:14px;margin-top:4px}.photozone p{font-size:11px;color:#668077;line-height:1.5}.photozone button{margin-top:5px}.photoentry{display:flex;gap:9px;align-items:center;border-bottom:1px solid var(--line);padding:10px 0}.photoentry:last-child{border-bottom:0}.photothumb{width:54px;height:50px;border-radius:10px;object-fit:cover;background:#e7f1e8}.photoentry .details{flex:1;min-width:0}.photoentry .details strong{display:block;font-size:12px}.photoentry .details small{color:var(--muted);font-size:10px}.choice{display:flex;gap:7px;margin:9px 0 15px;flex-wrap:wrap}.choice button{background:#fff;border:1px solid #dae8dd;border-radius:100px;padding:9px 11px;font-size:11px;font-weight:750;color:#547165}.choice button.chosen{color:#126b4e;background:#ddf3e3;border-color:#81c5a1}.moodrow{display:flex;gap:8px}.moodrow button{flex:1;border:1px solid var(--line);background:#fff;border-radius:15px;padding:12px 4px;font-size:25px}.moodrow button small{font-size:10px;display:block;margin-top:4px;color:var(--muted)}.moodrow button.selected{border-color:#2da776;background:#edfbf1}.status{font-size:12px;background:#e6f4e9;border-radius:14px;padding:11px;line-height:1.5}.trend{width:100%;height:170px;display:block}.checkline{font-size:11px;color:#72877c;line-height:1.65;margin:12px 2px}.stats{display:flex;gap:9px}.stats .card{flex:1;min-width:0}.stats small{color:var(--muted);font-size:10px}.stats b{display:block;font-size:19px;margin-top:4px}.footerline{color:#91a59a;font-size:10px;line-height:1.6;text-align:center;padding:7px 15px 0}.modalcover{display:none;position:absolute;inset:0;z-index:50;background:#16322b99;align-items:end;justify-content:center}.modalcover.open{display:flex}.modal{background:white;padding:22px 19px max(27px,env(safe-area-inset-bottom));border-radius:25px 25px 0 0;width:100%;max-height:85%;overflow:auto}.modal h3{margin:0 0 7px;font-size:20px}.modal p{font-size:12px;line-height:1.6;color:#60776d}.toast{position:absolute;bottom:83px;left:22px;right:22px;display:none;color:white;background:#164638;padding:13px;border-radius:13px;z-index:70;font-size:12px;box-shadow:0 8px 23px #0003;line-height:1.4}.weeknote{font-size:11px;color:var(--muted);line-height:1.6;margin:10px 2px}.divider{height:1px;background:var(--line);margin:12px 0}.listnote{display:flex;gap:9px;align-items:start;margin:8px 0;font-size:12px;line-height:1.5}.listnote .bullet{font-size:16px}.saved{font-size:11px;color:#0b7655;font-weight:700}.statusPill{background:#e1f6e8;color:#08754e;padding:6px 9px;border-radius:25px;font-size:10px;font-weight:800}.warning{color:#895d12}.inputline{margin-bottom:13px}.thumbbutton{border:0;background:transparent;padding:0}.kbar{display:flex;gap:5px;align-items:center;font-size:10px;color:var(--muted)}.tag{font-size:10px;font-weight:800;color:#277655;background:#e6f6e9;border-radius:100px;padding:6px 9px}.hidden{display:none!important}@media(max-width:800px){body{background:#f8faf8}.shell{display:block;padding:0}.pitch{display:none}.phone{width:100%;max-width:570px;margin:auto;height:100dvh;min-height:500px;max-height:none;outline:0;border:0;border-radius:0;box-shadow:none}.top{padding-top:max(18px,env(safe-area-inset-top))}}@media(prefers-reduced-motion:reduce){.scroll{scroll-behavior:auto}}
+
+.modelbar{background:linear-gradient(125deg,#ecf8ef,#f6f8ff);border:1px solid #cde6d9;border-radius:18px;padding:14px;margin:11px 0}
+.modelbar h3{font-size:15px;margin:0 0 8px;letter-spacing:-.2px}.modelbar p{font-size:11px;color:#53736b;line-height:1.55;margin:6px 0}
+.neuralbtn{display:flex;justify-content:center;align-items:center;gap:6px;width:100%;margin:9px 0 6px;border:1px solid #a9d4bf;background:white;color:#086548;border-radius:12px;padding:11px;font-weight:850;font-size:12px}
+.neuralbtn:disabled{opacity:.5}.airesult{padding:10px 11px;border-radius:12px;background:#fff;margin-top:8px;font-size:12px;line-height:1.6}
+.suggest{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.suggest button{border-radius:30px;border:1px solid #cbded2;background:white;color:#1b6852;padding:8px 10px;font-size:11px;font-weight:700}.suggest button.active{background:#daefe2;border-color:#2b9c6e}
+.portions{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.portions button{background:#f7faf8;border:1px solid #d0e4d6;color:#33594c;border-radius:12px;padding:10px 3px;font-size:12px;font-weight:700}.portions button.chosen{border-color:#28a36c;background:#e0f5e9;color:#096949}
+.portions small{display:block;font-weight:450;color:#648177;font-size:10px;margin-top:3px}
+.estCard{background:linear-gradient(130deg,#e6f6ec,#f5faf7);border-radius:16px;padding:14px;margin:12px 0}
+.estGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:11px;text-align:center}.estGrid strong{font-size:15px;display:block;color:#155c44}.estGrid small{font-size:10px;color:#698275}
+.estCal{font-size:22px;font-weight:900;color:#075d43;letter-spacing:-.5px;margin:4px 0}.estCal small{font-size:12px;font-weight:600}
+.estNotice{font-size:10px;color:#627c70;line-height:1.6;margin-top:9px}
+details.manual{border-top:1px solid #dcebe2;margin:11px 0;padding-top:11px}details.manual summary{font-size:11px;color:#237357;cursor:pointer;font-weight:800}
+.miniInfo{background:#f0f7f3;border-left:3px solid #2da577;border-radius:9px;padding:10px;font-size:11px;line-height:1.55;color:#416353}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="pitch">
+<div class="brandlogo"><span class="emblem">〽</span> МЕТАБОЛИКА</div>
+<h1>Меньше решений.<br/>Больше жизни.</h1>
+<p>Персональный помощник для реального снижения веса: семейная еда, фото обеда, шаги, бассейн, вода, план на завтра и поддержка без чувства вины.</p>
+<div class="feature"><span>✓</span> Личные данные только на устройстве</div>
+<div class="feature"><span>✓</span> Без карты, аккаунтов и платных API</div>
+<div class="feature"><span>✓</span> Физическая активность — по факту, вручную</div>
+<div class="feature"><span>✓</span> Фото еды + реальные подсказки ИИ по желанию</div>
+<p class="motto">Не ты работаешь на приложение — приложение помогает тебе.</p>
+</aside>
+<div aria-label="МЕТАБОЛИКА, прототип" class="phone" role="application">
+<header class="top"><div><div class="title">🌿 МЕТАБОЛИКА 0.4</div><div class="sub" id="headDate"></div></div><button aria-label="Настройки" class="circle" id="settingsBtn">⚙</button></header>
+<main class="scroll" id="mainScroll">
+<section class="screen active" id="dayScreen">
+<h2>Твой день</h2><p class="subline">Всё главное на одном экране. Записывай только то, что удобно.</p>
+<div class="hero"><div class="up">Начало пути · 113 кг</div><div class="big" id="currentWeight">113 <small>кг</small></div><div class="desc" id="weightDesc">Текущая отправная точка. Цель — 89 кг, без гонки за датой.</div><div class="goal"><span id="remainingGoal">До цели 24 кг</span><div class="track"><div class="fill" id="goalFill"></div></div><span>89 кг</span></div></div>
+<div class="grid2"><button class="tile" id="waterTile"><div class="i">💧</div><div class="num" id="waterMetric">—</div><div class="lbl">Выпито жидкости</div></button><button class="tile" id="stepsTile"><div class="i">👣</div><div class="num" id="stepsMetric">—</div><div class="lbl">Шагов сегодня</div></button><button class="tile" id="swimTile"><div class="i">🏊</div><div class="num" id="swimMetric">—</div><div class="lbl">Бассейн сегодня</div></button><button class="tile" id="foodTile"><div class="i">🍽</div><div class="num" id="foodMetric">0</div><div class="lbl">Записей о еде</div></button></div>
+<div class="card blue" id="waterCard"><div class="minirow"><b>💧 Вода и другие напитки</b><button class="subtlebtn" id="waterUndo">Отменить</button></div><div class="small" id="waterText">Пока не отмечено</div><div class="waterrow"><button data-water="150">+150 мл</button><button data-water="250">+250 мл</button><button data-water="400">+400 мл</button></div><div class="hint" id="fluidNote" style="margin-top:9px">Без универсальной нормы: учитываем врачебные ограничения, если они есть.</div></div>
+<div class="card soft" id="dayFoodInsight"><b>🍽 Оценка питания за сегодня</b><div class="small" id="foodTodayEstimate" style="margin-top:5px">Пока недостаточно данных для оценки.</div><div class="hint" style="margin-top:5px">Учитываются только записанные и оценённые блюда — это не полный рацион.</div></div><div class="sectionhead"><b>На завтра уже есть идея</b><button class="subtlebtn" data-nav="tomorrow">Смотреть →</button></div><div class="card soft"><b>🍳 Завтрак без лишней готовки</b><p class="small" id="homeTomorrowName">Омлет с овощами</p><button class="outline full" data-nav="tomorrow">Открыть план на завтра</button></div>
+<div class="sectionhead"><b>Как ты себя чувствуешь?</b><small>Одно касание</small></div><div class="moodrow"><button data-mood="good">🙂<small>Хорошо</small></button><button data-mood="tired">😐<small>Устал</small></button><button data-mood="hard">😔<small>Тяжело</small></button></div><div class="banner" id="motivationBox">Мы не требуем идеального дня. Достаточно одного полезного действия.</div>
+<div class="checkline">⚕️ С учётом перенесённого инфаркта и диабета программа не назначает интенсивность плавания, экстремальную калорийность или обязательную норму воды.</div>
+</section>
+<section class="screen" id="recordScreen">
+<h2>Записать</h2><p class="subline">Фото обеда, несколько цифр или одно касание. Всё необязательно.</p>
+<div class="photozone"><div class="ico">📷</div><strong>Что сегодня положили на обед?</strong><p>Сфотографируй еду, даже если рецепт и размер порции неизвестны.</p><img alt="Выбранное фото еды" class="preview" id="photoPreview"/><button class="primary" id="cameraBtn">Сделать фото / выбрать</button><input accept="image/*" capture="environment" class="hidden" id="photoInput" type="file"/></div>
+
+<div class="modelbar" id="photoIntelligence">
+<div class="minirow"><h3>🧠 Анализ фотографии</h3><span class="tag">0 ₽ · без карты</span></div>
+<p>Можно попробовать локальную модель Food-101. При первом использовании она загружается из интернета (около 93 МБ) и распознаёт вероятный <b>тип блюда</b>, но не точные граммы и ингредиенты.</p>
+<button class="neuralbtn" disabled="" id="analysePhoto">✨ Распознать по фото (необязательно)</button>
+<div class="hint" id="analysisStatus" role="status">Сначала добавь фотографию. Без ИИ всё равно можно записать обед.</div>
+<div class="hidden airesult" id="aiCandidates"></div>
+<details id="aiTroubleshoot" class="manual hidden" style="margin-top:10px"><summary>Почему не заработал анализ? Показать подробности</summary>
+<p class="hint" id="aiHelp" style="margin-top:8px"></p>
+<code id="aiErrorDetails" style="font-size:10px;overflow-wrap:anywhere;display:block;white-space:pre-wrap;padding:8px;background:#fff;border-radius:8px"></code>
+<p class="hint">Кнопка ниже проверяет доступность файлов модели отдельно. Она ничего не оплачивает и не отправляет фотографию.</p>
+<button type="button" class="outline full" id="checkAIAccess">Проверить доступ к файлам модели</button>
+<div class="hint" id="aiConnectionResult" aria-live="polite" style="white-space:pre-wrap;margin-top:9px"></div>
+<button type="button" class="subtlebtn" id="copyAIDiagnosis" style="margin-top:8px">Скопировать диагностику</button>
+<p class="hint">Если проблема в доступе к Hugging Face, переустановка HTML её не устранит. Понадобится разместить файлы модели на доступном хостинге или заменить модель.</p></details>
+<p>Фото анализируется на устройстве: в облачный ИИ оно не отправляется. Если браузер не поддерживает модель или интернет недоступен, выбери блюдо ниже.</p>
+</div>
+
+<div class="card"><div class="inputline"><label class="label" for="mealCategory">Что примерно на фото?</label><select class="field" id="mealCategory"><option value="">Не знаю / не похоже ни на что</option><option value="Гречка с котлетой">Гречка с котлетой</option><option value="Курица с гречкой">Курица с гречкой</option><option value="Гречка с мясом">Гречка с мясом</option><option value="Лагман">Лагман</option><option value="Плов">Плов</option><option value="Пельмени">Пельмени</option><option value="Суп">Суп</option><option value="Борщ">Борщ</option><option value="Щи">Щи</option><option value="Рыба с гарниром">Рыба с гарниром</option><option value="Рыба с овощами">Рыба с овощами</option><option value="Омлет">Омлет</option><option value="Овсянка">Овсянка</option><option value="Салат">Овощной салат</option><option value="Курица с рисом">Курица с рисом</option><option value="Картофель с мясом">Картофель с мясом</option><option value="Макароны с мясом">Макароны с мясом</option><option value="Тушёные овощи">Тушёные овощи</option><option value="Творог с ягодами">Творог с ягодами</option><option value="Сырники">Сырники</option><option value="Блины">Блины</option><option value="Пицца">Пицца</option><option value="Бургер">Бургер</option><option value="Суши">Суши / роллы</option><option value="Шашлык">Шашлык</option><option value="Каша">Каша</option><option value="Другое">Другое (укажи название ниже)</option></select></div>
+<div class="inputline"><label class="label">Быстрый выбор домашнего блюда</label>
+<div class="suggest" id="homeFoodChips">
+<button data-foodchip="Гречка с котлетой" type="button">🥘 Гречка + котлета</button>
+<button data-foodchip="Лагман" type="button">🍜 Лагман</button>
+<button data-foodchip="Плов" type="button">🍚 Плов</button>
+<button data-foodchip="Пельмени" type="button">🥟 Пельмени</button>
+<button data-foodchip="Суп" type="button">🍲 Суп</button></div></div>
+<div class="inputline"><label class="label">Примерный размер порции</label>
+<div class="portions" id="portionChoices"><button data-portion="small" type="button">Маленькая<small>≈ 70% обычной</small></button><button class="chosen" data-portion="normal" type="button">Обычная<small>примерная</small></button><button data-portion="large" type="button">Большая<small>≈ 140% обычной</small></button></div>
+<details class="manual"><summary>Знаешь массу порции? Необязательно</summary><div style="margin-top:9px"><label class="label" for="knownGrams">Масса готовой еды, г</label><input class="field" id="knownGrams" inputmode="numeric" max="2000" min="30" placeholder="Например: 350" type="number"/></div></details>
+</div>
+<div class="inputline"><label style="display:flex;align-items:center;gap:9px;font-size:12px"><input id="extraOil" type="checkbox"> Вероятно много масла, соуса или майонеза</input></label></div>
+<div aria-live="polite" class="estCard" id="foodEstimate"><b>Оценка питания</b><div class="hint" style="margin-top:6px">Выбери предполагаемое блюдо. Если состав неизвестен, можно сохранить фото без КБЖУ.</div></div>
+<div class="inputline"><label class="label" for="mealNote">Описание (можно пропустить)</label><input class="field" id="mealNote" placeholder="Например: котлета и гречка"/></div><div class="inputline"><label class="label" for="mealTime">Когда ел?</label><select class="field" id="mealTime"><option value="Завтрак">Завтрак</option><option selected="" value="Обед">Обед</option><option value="Ужин">Ужин</option><option value="Перекус">Перекус</option></select></div><button class="primary full" id="saveMeal">Сохранить обед и оценку</button><div class="hint" style="margin-top:10px">Без оценки точности по фото и без выдуманных КБЖУ. Следующий этап — тестирование бесплатного распознавания.</div></div>
+<div class="sectionhead"><b>Активность за день</b><small>По факту</small></div><div class="card"><div class="inputline"><label class="label" for="stepsInput">👣 Шагов сегодня</label><input class="field" id="stepsInput" inputmode="numeric" max="150000" min="0" placeholder="Например, 6300" type="number"/></div><div class="buttonrow"><button class="outline full" id="saveSteps">Сохранить шаги</button><button class="outline full" id="skipSteps">Пропустить</button></div></div>
+<div class="card"><b>🏊 Плавание</b><p class="hint">Если был в бассейне, запиши результат. Это не рекомендация по нагрузке.</p><div class="formgrid"><div class="inputline"><label class="label" for="swimMetres">Дистанция, м</label><input class="field" id="swimMetres" inputmode="numeric" max="100000" min="0" placeholder="Например, 300" type="number"/></div><div class="inputline"><label class="label" for="swimMinutes">Время, мин</label><input class="field" id="swimMinutes" inputmode="numeric" max="600" min="0" placeholder="Например, 25" type="number"/></div></div><label class="label" for="swimFeeling">Переносимость</label><select class="field" id="swimFeeling"><option value="">Не указывать</option><option value="Легко">Легко</option><option value="Умеренно">Умеренно</option><option value="Тяжело">Тяжело</option></select><div class="buttonrow" style="margin-top:12px"><button class="primary" id="saveSwim">Сохранить</button><button class="outline" id="noPool">Без бассейна</button></div></div>
+<div class="sectionhead"><b>Твои записи еды</b><small id="entriesCount">0 записей</small></div><div class="card" id="mealEntries"><p class="hint">Пока записей нет.</p></div>
+</section>
+<section class="screen" id="tomorrowScreen">
+<h2>Завтрашний день</h2><p class="subline" id="tomorrowDate">Готовый вариант без сложной готовки — изменяй одним касанием.</p>
+<div class="card violet"><b>Какой день тебя ждёт?</b><div class="choice" id="dayMode"><button class="chosen" data-daymode="usual">Обычный</button><button data-daymode="busy">Занят</button><button data-daymode="tired">Мало сил</button></div><div class="hint">Меняется удобство плана, но не медицинские ограничения.</div></div>
+<div id="planMeals"></div>
+<div class="card blue"><div class="minirow"><b>💧 Питьё</b><span class="tag">Без принуждения</span></div><p class="small">Отмечай привычные напитки по факту. Числовая цель не назначается без оценки ограничений по здоровью.</p></div>
+<div class="card"><b>🛒 Подготовить заранее</b><p class="small" id="prepText">Яйца, овощи и продукты для семейного ужина.</p></div>
+<div class="card soft"><b>🔄 Учитываем сегодняшний день</b><div class="small" id="planDayInsight" style="margin-top:6px">Учитываем только фактически внесённые данные.</div></div><button class="primary full" id="acceptPlan">✓ План подходит</button><p class="weeknote">Обед готовит семья: он специально не фиксируется заранее. Когда получишь порцию, сфотографируй её — и продолжай день без пересчётов вручную.</p>
+</section>
+<section class="screen" id="progressScreen">
+<h2>Мой путь</h2><p class="subline">Долгосрочная динамика, маленькие победы и поддержка — без наказаний за сложные дни.</p>
+<div class="grid2"><div class="card"><small>Отправная точка</small><div style="font-size:24px;font-weight:850">113 кг</div></div><div class="card"><small>Долгосрочная цель</small><div style="font-size:24px;font-weight:850">89 кг</div></div></div>
+<div class="card"><b>⚖️ Новое измерение</b><div class="formgrid" style="margin-top:11px"><input class="field" id="weightInput" inputmode="decimal" max="300" min="35" placeholder="Вес, кг" step="0.1" type="number"/><button class="primary" id="saveWeight">Сохранить вес</button></div><div class="hint" style="margin-top:10px">Исходные 113 кг известны, но новых измерений пока нет.</div></div>
+<div class="card"><div class="minirow"><b>Тренд веса</b><span class="statusPill" id="trendCount">Нет измерений</span></div><svg aria-label="График динамики массы тела" class="trend" id="trendChart" role="img" viewbox="0 0 360 170"></svg><div class="hint" id="trendExplainer">Два новых измерения позволят построить первую линию. Не делаем выводов по одному дню.</div></div>
+<div class="card soft"><b>🏆 За что себя можно похвалить</b><div class="small" id="winsBox" style="margin-top:8px">Любое небольшое устойчивое действие — уже достижение.</div></div>
+<div class="card violet"><b>🧠 Поддержка без чувства вины</b><p class="small" id="psychText">Не нужно быть идеальным: возвращение к обычному питанию после сложного дня важнее наказания себя.</p><div class="choice" id="supportChoices"><button data-support="craving">Хочется сладкого</button><button data-support="offplan">Сбился с плана</button><button data-support="plateau">Вес стоит</button><button data-support="tired">Нет сил</button></div><div class="status" id="supportAnswer">Выбери ситуацию — получишь один короткий, выполнимый шаг.</div></div>
+<div class="checkline">⚕️ Приложение не ставит диагнозы и не меняет лечение. Боль или давление в груди, выраженная одышка, обморок — причина обратиться за неотложной медицинской помощью, а не продолжать нагрузку.</div>
+</section>
+<p class="footerline">Прототип 0.4.3 · Данные на этом устройстве · 0 ₽ · ИИ-распознавание экспериментальное</p>
+</main>
+<nav aria-label="Разделы" class="tabbar"><button class="tab active" data-nav="day"><span>⌂</span>Сегодня</button><button class="tab" data-nav="record"><span>◎</span>Записать</button><button class="tab" data-nav="tomorrow"><span>▦</span>Завтра</button><button class="tab" data-nav="progress"><span>♡</span>Мой путь</button></nav>
+<div class="modalcover" id="modalCover"><div aria-modal="true" class="modal" role="dialog"><h3>Настройки и данные</h3><p>Прототип работает без регистрации и платного API. Записи и изображения остаются в этом браузере. Для переноса информации требуется резервная копия.</p><div class="inputline"><label class="label" for="fluidLimit">Предел жидкости, назначенный врачом (мл/сутки)</label><input class="field" id="fluidLimit" max="6000" min="100" placeholder="Не назначен" type="number"/><p class="hint">Заполняй только если врач действительно указал лимит. Это не рекомендованная цель питья.</p></div><button class="primary full" id="saveSettings">Сохранить настройку</button><div class="divider"></div><button class="outline full" id="exportData">Скачать резервную копию данных (JSON)</button><p class="hint">Фото в текущем прототипе сохраняются в браузере, но не входят в JSON-экспорт. Не очищай данные браузера без сохранения нужных фото.</p><div class="divider"></div><button class="outline full" id="closeModal">Закрыть</button></div></div>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+</div>
+</div>
+<script>
+(()=>{'use strict';
+const KEY='metabolika_v03';const initial={weights:[],water:{},steps:{},swim:{},moods:{},meals:{},plans:{},dayModes:{},fluidLimit:null};
+let state;try{state=Object.assign({},initial,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){state=structuredClone(initial)};
+const $=id=>document.getElementById(id),today=()=>dayKey(new Date()),dayKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;const tomorrow=()=>{const d=new Date();d.setDate(d.getDate()+1);return dayKey(d)};const pretty=d=>new Date(d+'T12:00:00').toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long'});
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){toast('Не удалось сохранить данные: возможно, заполнено хранилище')}};
+let toastTimer;function toast(s){const el=$('toast');el.textContent=s;el.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.style.display='none',3900)};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let dbPromise=null;function imageDB(){if(!('indexedDB'in window))return Promise.resolve(null);if(!dbPromise)dbPromise=new Promise(resolve=>{try{let rq=indexedDB.open('metabolika_images_v03',1);rq.onupgradeneeded=()=>rq.result.createObjectStore('photos');rq.onsuccess=()=>resolve(rq.result);rq.onerror=()=>resolve(null)}catch(e){resolve(null)}});return dbPromise}
+async function imagePut(id,blob){const db=await imageDB();if(!db)return false;return await new Promise(resolve=>{try{let tx=db.transaction('photos','readwrite');tx.objectStore('photos').put(blob,id);tx.oncomplete=()=>resolve(true);tx.onerror=()=>resolve(false)}catch(e){resolve(false)}})}
+async function imageGet(id){const db=await imageDB();if(!db)return null;return await new Promise(resolve=>{try{let rq=db.transaction('photos','readonly').objectStore('photos').get(id);rq.onsuccess=()=>resolve(rq.result||null);rq.onerror=()=>resolve(null)}catch(e){resolve(null)}})}
+async function imageDelete(id){const db=await imageDB();if(!db)return;return await new Promise(resolve=>{let tx=db.transaction('photos','readwrite');tx.objectStore('photos').delete(id);tx.oncomplete=()=>resolve();tx.onerror=()=>resolve()})}
+async function compressImage(file){return await new Promise((resolve,reject)=>{const src=URL.createObjectURL(file);const img=new Image();img.onload=()=>{let w=img.naturalWidth,h=img.naturalHeight,scale=Math.min(1,1000/Math.max(w,h));const canvas=document.createElement('canvas');canvas.width=Math.round(w*scale);canvas.height=Math.round(h*scale);canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);canvas.toBlob(b=>{URL.revokeObjectURL(src);b?resolve(b):reject(new Error('encoding'))},'image/jpeg',.75)};img.onerror=()=>{URL.revokeObjectURL(src);reject(new Error('image'))};img.src=src})}
+function openTab(name){for(const el of document.querySelectorAll('.screen'))el.classList.toggle('active',el.id===name+'Screen');for(const el of document.querySelectorAll('.tab'))el.classList.toggle('active',el.dataset.nav===name);$('mainScroll').scrollTop=0;if(name==='progress')renderProgress();if(name==='record')renderMeals()}
+function waterTotal(){return (state.water[today()]||[]).reduce((a,b)=>a+Number(b.ml||0),0)}
+function renderDay(){const last=state.weights.length?state.weights[state.weights.length-1].kg:113;const progress=Math.max(0,Math.min(100,100*(113-last)/24));$('currentWeight').innerHTML=last.toLocaleString('ru-RU')+' <small>кг</small>';$('weightDesc').textContent=state.weights.length?'Последний внесённый вес. Следим за трендом, а не за колебаниями одного дня.':'Исходный вес, который ты сообщил. Новых измерений пока нет.';$('remainingGoal').textContent=`До цели ${Math.max(0,last-89).toLocaleString('ru-RU',{maximumFractionDigits:1})} кг`;$('goalFill').style.width=progress+'%';const vol=waterTotal();$('waterMetric').textContent=vol?`${(vol/1000).toLocaleString('ru-RU',{maximumFractionDigits:2})} л`:'—';$('stepsMetric').textContent=state.steps[today()]===undefined?'—':Number(state.steps[today()]).toLocaleString('ru-RU');const s=state.swim[today()];$('swimMetric').textContent=!s?'—':s.none?'Не был':s.m?`${s.m} м`:`${s.min} мин`;$('foodMetric').textContent=(state.meals[today()]||[]).length;$('waterText').textContent=vol?`${vol} мл отмечено сегодня`:'Пока не отмечено';$('waterUndo').disabled=!(state.water[today()]||[]).length;const lim=state.fluidLimit;$('fluidNote').textContent=lim?vol>lim?`⚠️ Записано ${vol} мл при указанном врачебном пределе ${lim} мл. Проконсультируйся с врачом при необходимости.`:`Указанный врачебный предел: ${lim} мл/сутки. Это не цель питья.`:'Без универсальной нормы: учитываем врачебные ограничения, если они есть.';$('homeTomorrowName').textContent=getPlan().meals[0];const mood=state.moods[today()];for(const b of document.querySelectorAll('[data-mood]'))b.classList.toggle('selected',b.dataset.mood===mood);$('motivationBox').textContent=mood==='hard'?'Сложный день не перечёркивает путь. Завтра можно вернуться к обычному плану без голодовки.':mood==='tired'?'Если устал, упростим выбор еды и дадим место отдыху. Прогресс не требует героизма.':mood==='good'?'Хорошее самочувствие — не повод резко повышать нагрузку. Сохраняем устойчивый ритм.':'Мы не требуем идеального дня. Достаточно одного полезного действия.';updateFoodInsight()}
+const mealCatalog=[
+ {label:'Завтрак',icon:'🍳',values:['Омлет с овощами','Творог без добавленного сахара с ягодами','Овсянка с йогуртом и ягодами'],note:'Простые ингредиенты, готовится быстро'},
+ {label:'Обед',icon:'🥘',values:['Обед из дома — фото по факту','Семейный обед — фото по факту','Что положили на обед — сфотографировать'],note:'Не нужно знать рецепт или вес порции заранее'},
+ {label:'Ужин',icon:'🍲',values:['Рыба с овощами и гарниром','Курица с овощами и гарниром','Домашний суп и источник белка'],note:'Можно приготовить на два дня'},
+ {label:'Активность',icon:'🏊',values:['Если разрешено врачом: привычная прогулка в комфортном темпе','Бассейн — только в рамках одобренной программы','Восстановление или разрешённая лёгкая активность'],note:'Дистанция и интенсивность здесь не назначаются'}
+];
+const busyCatalog=[['Натуральный йогурт, творог и ягоды','Быстрый омлет с овощами','Овсянка без добавленного сахара'],null,['Готовое домашнее блюдо из запасов','Овощи с рыбой, приготовленной заранее','Курица с гарниром из вчерашней готовки'],['Отдых или разрешённая короткая прогулка','Без бассейна, если нет времени','Разрешённая привычная активность']];
+const tiredCatalog=[['Привычный завтрак без сложной готовки','Творог с ягодами','Омлет с овощами'],null,['Домашний суп и источник белка','Готовая рыба с овощами','Простой ужин из запасов'],['Отдых и восстановление','Плавание только если самочувствие и врачебный план позволяют','Допустимая лёгкая активность']];
+function getPlan(){const date=tomorrow(),mode=state.dayModes[date]||'usual',entries=state.plans[date]?.indices||[0,0,0,0],c=mode==='busy'?busyCatalog:mode==='tired'?tiredCatalog:null;return {date,mode,indices:entries,meals:mealCatalog.map((m,i)=>(c?.[i]||m.values)[entries[i]%(c?.[i]||m.values).length]),accepted:!!state.plans[date]?.accepted}}
+function renderPlan(){const plan=getPlan();$('tomorrowDate').textContent=pretty(plan.date)+' · план можно изменить одним касанием';for(const b of document.querySelectorAll('[data-daymode]'))b.classList.toggle('chosen',b.dataset.daymode===plan.mode);$('planMeals').innerHTML=mealCatalog.map((m,i)=>`<div class="meal"><div class="foodico">${m.icon}</div><div class="mealmain"><small>${m.label}</small><b>${esc(plan.meals[i])}</b><p>${esc(m.note)}</p></div><button class="arrowbtn" data-replace="${i}" aria-label="Заменить: ${m.label}">↻</button></div>`).join('');$('prepText').textContent=plan.mode==='busy'?'Выбрать готовые продукты и не планировать сложную готовку.':plan.mode==='tired'?'Подготовить знакомые продукты; завтра можно готовить минимально.':'Яйца или творог, овощи, продукты для ужина. Обед — как приготовит семья.';$('acceptPlan').textContent=plan.accepted?'✓ План утверждён':'✓ План подходит';updateTomorrowHints()}
+function setMode(mode){state.dayModes[tomorrow()]=mode;state.plans[tomorrow()]={indices:[0,0,0,0],accepted:false};save();renderPlan();renderDay()}
+function replacePlan(i){const p=getPlan(),m=mealCatalog[i],c=p.mode==='busy'?busyCatalog:p.mode==='tired'?tiredCatalog:null,opts=c?.[i]||m.values;p.indices[i]=(p.indices[i]+1)%opts.length;state.plans[tomorrow()]={indices:p.indices,accepted:false};save();renderPlan();renderDay()}
+let pendingPhoto=null;let previewUrl=null;function clearPending(){pendingPhoto=null;if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl=null}$('photoPreview').style.display='none';$('photoPreview').removeAttribute('src');$('photoInput').value=''}
+
+// Approximate cooked meal reference values (per 100 g): illustrative mixed-dish averages.
+// Not food-label values for a particular household recipe.
+const foodDB={
+ 'Гречка с котлетой':{g:310,k:150,p:8,f:7,c:14},
+ 'Курица с гречкой':{g:320,k:132,p:12,f:4,c:14},
+ 'Гречка с мясом':{g:320,k:145,p:10,f:6,c:14},
+ 'Лагман':{g:420,k:105,p:6,f:4,c:13},
+ 'Плов':{g:290,k:190,p:7,f:9,c:22},
+ 'Пельмени':{g:280,k:235,p:10,f:10,c:27},
+ 'Суп':{g:400,k:65,p:3,f:3,c:7},
+ 'Борщ':{g:400,k:55,p:3,f:2.5,c:6},
+ 'Щи':{g:400,k:45,p:2.5,f:2,c:5},
+ 'Рыба с гарниром':{g:320,k:133,p:13,f:4.5,c:11},
+ 'Рыба с овощами':{g:310,k:106,p:12,f:4.5,c:5},
+ 'Омлет':{g:210,k:155,p:10,f:12,c:3},
+ 'Овсянка':{g:250,k:92,p:3,f:3,c:14},
+ 'Салат':{g:230,k:65,p:2,f:4,c:5},
+ 'Курица с рисом':{g:320,k:145,p:12,f:4,c:17},
+ 'Картофель с мясом':{g:350,k:135,p:8,f:6,c:13},
+ 'Макароны с мясом':{g:340,k:173,p:9,f:8,c:17},
+ 'Тушёные овощи':{g:300,k:79,p:2.5,f:4,c:9},
+ 'Творог с ягодами':{g:230,k:120,p:14,f:5,c:6},
+ 'Сырники':{g:200,k:220,p:11,f:11,c:19},
+ 'Блины':{g:230,k:225,p:6,f:9,c:31},
+ 'Пицца':{g:240,k:265,p:11,f:10,c:32},
+ 'Бургер':{g:230,k:260,p:12,f:12,c:25},
+ 'Суши':{g:240,k:160,p:7,f:4,c:25},
+ 'Шашлык':{g:260,k:225,p:19,f:16,c:1},
+ 'Каша':{g:250,k:105,p:3,f:3,c:17}
+};
+const portionFactors={small:.7,normal:1,large:1.4};
+let chosenPortion='normal',recognitionResult=null,modelPromise=null,libraryPromise=null;
+function approximateDish(){
+ const key=$('mealCategory').value,db=foodDB[key];if(!db)return null;
+ const override=$('knownGrams').value.trim(),grams=override?Number(override):Math.round(db.g*portionFactors[chosenPortion]);
+ if(!Number.isFinite(grams)||grams<30||grams>2000)return null;
+ const oily=$('extraOil').checked,ratio=grams/100;
+ const total={k:db.k*ratio,p:db.p*ratio,f:db.f*ratio,c:db.c*ratio};
+ // Wide uncertainty for unmeasured portions, recipe oil and mixed dishes.
+ const low=override?.75:.62,high=override?1.32:1.48;
+ const estimate={key,grams,knownGrams:!!override,
+   kcalMin:Math.round(total.k*low),kcalMax:Math.round(total.k*high+(oily?60:0)),
+   pMin:Math.round(total.p*.68),pMax:Math.round(total.p*1.35),
+   fMin:Math.round(total.f*.60),fMax:Math.round(total.f*1.55+(oily?12:0)),
+   cMin:Math.round(total.c*.68),cMax:Math.round(total.c*1.38),
+   oilUnknown:oily,method:recognitionResult&&recognitionResult.suggested===key?'photo-proposed-confirmed':'user-selected'};
+ return estimate;
+}
+function renderFoodEstimate(){
+ const est=approximateDish(),box=$('foodEstimate');
+ for(const b of document.querySelectorAll('[data-foodchip]'))b.classList.toggle('active',b.dataset.foodchip===$('mealCategory').value);
+ if(!est){box.innerHTML='<b>Оценка питания</b><div class="hint" style="margin-top:6px">Выбери блюдо, чтобы получить примерный диапазон. Можно сохранить фото и без оценки.</div>';return}
+ box.innerHTML=`<b>📊 Примерная пищевая ценность</b><div class="estCal">${est.kcalMin}–${est.kcalMax} <small>ккал</small></div><div class="hint">Предположительная порция ${est.grams} г ${est.knownGrams?'(по введённой массе)':'(без взвешивания)'}.</div><div class="estGrid"><div><strong>${est.pMin}–${est.pMax} г</strong><small>Белки</small></div><div><strong>${est.fMin}–${est.fMax} г</strong><small>Жиры</small></div><div><strong>${est.cMin}–${est.cMax} г</strong><small>Углеводы</small></div></div><div class="estNotice">Не точный анализ фотографии: ориентировочный расчёт по усреднённому домашнему блюду. Скрытые масла, сахар и рецепт могут вывести фактические значения за этот диапазон.</div>`;
+}
+function updateFoodInsight(){
+ const all=state.meals[today()]||[],estim=all.filter(x=>x.estimate),box=$('foodTodayEstimate');
+ if(!all.length){box.textContent='Пока нет записей о еде. Для домашнего обеда достаточно одного фото.';return}
+ if(!estim.length){box.textContent=`Записано блюд: ${all.length}. Состав пока неизвестен — не будем придумывать калории.`;return}
+ const low=estim.reduce((s,x)=>s+x.estimate.kcalMin,0),high=estim.reduce((s,x)=>s+x.estimate.kcalMax,0);
+ box.textContent=`По ${estim.length} из ${all.length} записей: примерно ${low}–${high} ккал. Это только оценённые блюда, не весь день.`;
+}
+function updateTomorrowHints(){
+ const mood=state.moods[today()],swim=state.swim[today()],steps=state.steps[today()],meals=state.meals[today()]||[];
+ const parts=[];
+ if(swim&&!swim.none)parts.push('Сегодня отмечено плавание'+(swim.m?' '+swim.m+' м':'')+'. Завтра не нужно автоматически увеличивать нагрузку.');
+ if(swim?.feeling==='Тяжело'||mood==='tired'||mood==='hard')parts.push('С учётом самочувствия удобнее выбрать восстановительный или более простой день.');
+ if(steps!==undefined)parts.push('Шаги за сегодня: '+Number(steps).toLocaleString('ru-RU')+'. Это факт активности, а не разрешение переедать.');
+ if(meals.length)parts.push('Блюд записано: '+meals.length+'. Ужин и завтрак не компенсируют обед голодовкой.');
+ if(!parts.length)parts.push('Нет обязательных отчётов. Семейный обед по-прежнему учитываем по фото и фактической порции.');
+ $('planDayInsight').textContent=parts.join(' ');
+}
+const knownLabels={
+ 'fried_rice':'Плов','risotto':'Плов','gyoza':'Пельмени','dumplings':'Пельмени',
+ 'pho':'Лагман','ramen':'Лагман','spaghetti_bolognese':'Макароны с мясом','lasagna':'Макароны с мясом',
+ 'omelette':'Омлет','french_toast':'Блины','pancakes':'Блины','pizza':'Пицца',
+ 'hamburger':'Бургер','sushi':'Суши','sashimi':'Суши','caesar_salad':'Салат',
+ 'greek_salad':'Салат','chicken_curry':'Курица с рисом','chicken_wings':'Курица с рисом',
+ 'filet_mignon':'Шашлык','steak':'Шашлык','grilled_salmon':'Рыба с овощами',
+ 'fish_and_chips':'Рыба с гарниром','miso_soup':'Суп','hot_and_sour_soup':'Суп',
+ 'lobster_bisque':'Суп','clam_chowder':'Суп','beef_stroganoff':'Гречка с мясом',
+ 'beet_salad':'Салат','apple_pie':'Блины'
+};
+function applyRecognizedFood(label){const normal=String(label||'').toLowerCase().replaceAll(' ','_');return knownLabels[normal]||null;}
+const AI_MODULE='https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1';
+let lastAIResource='нет данных';
+async function waitForNetwork(promise,ms,label){let timer;try{return await Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(label+' — превышено время ожидания '+Math.round(ms/1000)+' секунд')),ms)})])}finally{clearTimeout(timer)}}
+function aiFailureExplanation(err,step){
+ const raw=String(err?.message||err||'Неизвестная ошибка');
+ const lower=raw.toLowerCase();
+ let msg='Не удалось запустить распознавание. Причина указана ниже.';
+ if(!navigator.onLine||/(failed to fetch|network|net::|load failed|import|cors|content security|module)/i.test(raw)){
+   msg=step==='library'?'Не загрузилась библиотека ИИ из интернета. Возможна блокировка CDN, проблемы с соединением или открытие из локального файла.':'Не удалось загрузить модель или её компоненты. Проверь доступность Hugging Face, соединение и память устройства.';
+ }else if(/(out of memory|memory|allocation|oom|array buffer)/i.test(raw)){
+   msg='Устройству могло не хватить оперативной памяти для модели (~93 МБ при загрузке, больше при работе).';
+ }else if(/(wasm|webassembly|worker|backend|onnx|session|cross.origin)/i.test(raw)){
+   msg='В этом браузере не удалось запустить вычислительный модуль WebAssembly. На обычной HTTPS-странице (например, GitHub Pages) он может работать лучше.';
+ }
+ const fileWarning=location.protocol==='file:'?' Файл открыт напрямую (file://). Проверь запуск на GitHub Pages.':(/(?:^|\.)web-sandbox\.oaiusercontent\.com$/.test(location.hostname)?' Сейчас используется предпросмотр ChatGPT. Проверяй также на постоянной странице GitHub Pages.':'');
+ return {msg:msg+fileWarning,detail:'Этап: '+step+'\nАдрес страницы: '+location.href+'\nПоследний упомянутый компонент: '+lastAIResource+'\nОшибка: '+raw.slice(0,700)};
+}
+async function recognizeFood(){
+ if(!pendingPhoto){toast('Сначала выбери фото');return}
+ const btn=$('analysePhoto'),status=$('analysisStatus');btn.disabled=true;
+ $('aiCandidates').classList.add('hidden');$('aiTroubleshoot').classList.add('hidden');lastAIResource='нет данных';
+ status.textContent='Подключаем библиотеку распознавания. Первый запуск может занять несколько минут…';
+ let blobUrl=null,step='library';
+ try{
+  // Use the official prebundled CDN entry point, not jsDelivr's generic /+esm rewriter.
+  if(!libraryPromise)libraryPromise=import(AI_MODULE).catch(e=>{libraryPromise=null;throw e});
+  const {pipeline}=await waitForNetwork(libraryPromise,25000,'Не удалось загрузить библиотеку с CDN');
+  if(typeof pipeline!=='function')throw new Error('Библиотека загрузилась, но pipeline отсутствует');
+  step='model';
+  status.textContent='Загружаем модель Food-101. Впервые потребуется около 93 МБ — не закрывай страницу…';
+  if(!modelPromise)modelPromise=pipeline('image-classification','onnx-community/swin-finetuned-food101-ONNX',{
+   dtype:'q8',device:'wasm',
+   progress_callback:x=>{if(x.file)lastAIResource=String(x.file);if(x.status==='progress'&&Number.isFinite(x.progress))status.textContent='Загрузка компонента модели: '+Math.round(x.progress)+'%';}
+  }).catch(e=>{modelPromise=null;throw e});
+  const model=await waitForNetwork(modelPromise,240000,'Не удалось загрузить модель Food-101');
+  step='image';status.textContent='Анализируем фотографию на твоём устройстве…';
+  const compressed=await compressImage(pendingPhoto);blobUrl=URL.createObjectURL(compressed);
+  const results=await model(blobUrl,{top_k:3});
+  if(!Array.isArray(results)||!results.length)throw new Error('Модель не вернула результатов');
+  const best=results[0],bestKey=applyRecognizedFood(best.label);
+  recognitionResult={label:best.label,score:best.score,suggested:bestKey};
+  const holder=$('aiCandidates');holder.classList.remove('hidden');
+  holder.innerHTML='<b>Предположения модели (не точный состав):</b><div class="suggest">'+results.map((r)=>{
+   const k=applyRecognizedFood(r.label),conf=Math.round(r.score*100);
+   return k?`<button type="button" data-aifood="${esc(k)}">${esc(k)} · ${conf}%</button>`:`<span class="tag">${esc(r.label.replaceAll('_',' '))} · ${conf}%</span>`;
+  }).join('')+'</div><div class="estNotice">Food-101 определяет категорию блюда, а НЕ ингредиенты, массу или КБЖУ. Домашняя еда из нескольких компонентов может распознаться неверно. Подтверди результат или выбери вручную.</div>';
+  status.textContent='Готово. Проверь предположение — без подтверждения ничего не записываем.';
+ }catch(err){
+  const info=aiFailureExplanation(err,step);
+  status.textContent='⚠️ Автоматическое распознавание сейчас не сработало. Фото можно сохранить и выбрать блюдо ниже.';
+  $('aiHelp').textContent=info.msg;
+  $('aiErrorDetails').textContent=info.detail;
+  $('aiTroubleshoot').classList.remove('hidden');
+  console.warn('[Metabolika AI]',info.detail);
+  toast('ИИ не запустился. Открой подробности под кнопкой распознавания.');
+ }finally{if(blobUrl)URL.revokeObjectURL(blobUrl);btn.disabled=!pendingPhoto}
+}
+
+
+const foodModelBase='https://huggingface.co/onnx-community/swin-finetuned-food101-ONNX/resolve/main/';
+// Запросы к модели выполняются напрямую из браузера пользователя.
+// Встроенный предпросмотр может ограничивать сетевую загрузку. Проверяйте на своём домене GitHub Pages.
+
+async function checkEndpoint(name,url,method='GET'){
+ const ctrl=new AbortController(), t=setTimeout(()=>ctrl.abort(),10000);
+ try{
+  const resp=await fetch(url,{method,cache:'no-store',mode:'cors',signal:ctrl.signal});
+  return name+': '+(resp.ok?'ДОСТУПЕН':`HTTP ${resp.status}`);
+ }catch(err){
+  return name+': НЕТ ДОСТУПА ('+(err?.name==='AbortError'?'таймаут 10 с':String(err?.message||err).slice(0,90))+')';
+ }finally{clearTimeout(t)}
+}
+async function runAiConnectionTest(){
+ const btn=$('checkAIAccess'),target=$('aiConnectionResult');btn.disabled=true;
+ target.textContent='Проверяю четыре адреса. Это может занять до 10 секунд…';
+ try{
+  const urls=[
+   ['Библиотека jsDelivr','https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/package.json','GET'],
+   ['Конфигурация Hugging Face',foodModelBase+'config.json','GET'],
+   ['Конфигурация изображения',foodModelBase+'preprocessor_config.json','GET'],
+   ['Файл весов Food-101 (заголовки)',foodModelBase+'onnx/model_quantized.onnx','HEAD']
+  ];
+  const results=await Promise.all(urls.map(x=>checkEndpoint(...x)));
+  const message=['Дата проверки: '+new Date().toLocaleString('ru-RU'),'Страница: '+location.href,...results,'Важно: доступность конфигурации не гарантирует успешную загрузку весов и запуск модели.'].join('\n');
+  target.textContent=message;
+ }finally{btn.disabled=false}
+}
+$('checkAIAccess').addEventListener('click',runAiConnectionTest);
+$('copyAIDiagnosis').addEventListener('click',async()=>{
+ const txt=[ $('aiErrorDetails').textContent,$('aiConnectionResult').textContent ].filter(Boolean).join('\n\n');
+ try{await navigator.clipboard.writeText(txt);toast('Диагностика скопирована');}
+ catch(err){const el=$('aiErrorDetails');el.textContent=txt;toast('Выдели и скопируй текст диагностики под кнопкой');}
+});
+
+async function addMeal(){
+ const hadPhoto=!!pendingPhoto, type=$('mealTime').value,category=$('mealCategory').value.trim(),desc=$('mealNote').value.trim();
+ if(!hadPhoto&&!category&&!desc){toast('Добавь фотографию или название блюда');return}
+ const name=desc||category||'Домашняя еда (состав не указан)',est=approximateDish();
+ const id='meal-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);
+ let photoSaved=false;if(pendingPhoto){try{const compressed=await compressImage(pendingPhoto);photoSaved=await imagePut(id,compressed)}catch(e){photoSaved=false}}
+ const entry={id,name,type,time:new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}),hasPhoto:photoSaved};
+ if(est)entry.estimate=est;
+ if(recognitionResult)entry.recognition={label:recognitionResult.label,score:recognitionResult.score,suggested:recognitionResult.suggested};
+ state.meals[today()]??=[];state.meals[today()].push(entry);save();
+ clearPending();recognitionResult=null;$('aiTroubleshoot').classList.add('hidden');$('aiCandidates').classList.add('hidden');$('aiCandidates').innerHTML='';
+ $('analysisStatus').textContent='Сначала добавь фотографию. Без ИИ всё равно можно записать обед.';
+ $('analysePhoto').disabled=true;$('mealCategory').value='';$('mealNote').value='';$('knownGrams').value='';$('extraOil').checked=false;chosenPortion='normal';
+ document.querySelectorAll('[data-portion]').forEach(b=>b.classList.toggle('chosen',b.dataset.portion==='normal'));
+ renderFoodEstimate();renderDay();renderMeals();updateTomorrowHints();
+ toast(photoSaved?(est?'Фото и примерный диапазон КБЖУ записаны':'Фото сохранено без оценки КБЖУ'):(hadPhoto?'Еда сохранена, но фото не удалось записать':'Еда записана'));
+}
+async function renderMeals(){
+ const key=today(),arr=state.meals[key]||[];$('entriesCount').textContent=`${arr.length} записей`;
+ $('mealEntries').innerHTML=arr.length?arr.map(x=>{
+ const e=x.estimate,desc=e?`примерно ${e.kcalMin}–${e.kcalMax} ккал · Б ${e.pMin}–${e.pMax} г · Ж ${e.fMin}–${e.fMax} г · У ${e.cMin}–${e.cMax} г`:'КБЖУ не оценено';
+ return `<div class="photoentry"><div data-thumb="${esc(x.id)}" class="photothumb" style="display:grid;place-items:center">🍽</div><div class="details"><strong>${esc(x.type)} · ${esc(x.name)}</strong><small>${esc(x.time)} · ${x.hasPhoto?'фото сохранено':'без фото'}</small><small>${desc}</small></div><button class="subtlebtn" data-delete="${esc(x.id)}" aria-label="Удалить запись">✕</button></div>`
+ }).join(''):'<p class="hint">Пока нет записей. Добавь фото домашнего обеда или выбери блюдо из списка.</p>';
+ for(const x of arr){if(!x.hasPhoto)continue;
+ const div=[...$('mealEntries').querySelectorAll('[data-thumb]')].find(e=>e.dataset.thumb===x.id);if(!div)continue;
+ const blob=await imageGet(x.id);if(blob&&div.isConnected){const u=URL.createObjectURL(blob),img=document.createElement('img');img.className='photothumb';img.alt='Фото домашнего обеда';img.src=u;img.onload=()=>URL.revokeObjectURL(u);div.replaceWith(img)}
+ }
+}
+function renderProgress(){const w=state.weights;const latest=w.slice(-8);$('trendCount').textContent=w.length?`${w.length} измер.`:'Нет измерений';const chart=$('trendChart');if(latest.length<2){chart.innerHTML='<text x="180" y="78" font-size="13" fill="#849a8d" text-anchor="middle">График появится после 2 измерений</text>';$('trendExplainer').textContent='Не делаем выводов по одному дню. Быстрые изменения могут отражать колебания жидкости.'}else{const values=latest.map(v=>v.kg),lo=Math.min(...values)-.8,hi=Math.max(...values)+.8;const p=latest.map((v,i)=>{const x=28+i*(304/(latest.length-1)),y=140-105*(v.kg-lo)/(hi-lo);return [x,y,v.kg]});const pts=p.map(a=>a.slice(0,2).join(',')).join(' ');chart.innerHTML=`<line x1="28" x2="334" y1="140" y2="140" stroke="#d9e9df"/><line x1="28" x2="334" y1="35" y2="35" stroke="#eef4ef"/><polyline points="${pts}" fill="none" stroke="#11946f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>${p.map(a=>`<circle cx="${a[0]}" cy="${a[1]}" r="4" fill="#11946f"/>`).join('')}<text x="28" y="158" fill="#789083" font-size="10">${esc(latest[0].date.slice(5))}</text><text x="330" y="158" text-anchor="end" fill="#789083" font-size="10">${esc(latest.at(-1).date.slice(5))}</text><text x="28" y="26" fill="#577166" font-size="11">${hi.toFixed(1)} кг</text><text x="28" y="128" fill="#577166" font-size="11">${lo.toFixed(1)} кг</text>`;$('trendExplainer').textContent='Это записи веса, а не прогноз. Оценивай тенденцию за недели, а не изменение за один день.'}const wins=[];if(w.length)wins.push('внёс вес');if(waterTotal()>0)wins.push('отметил питьё');if(state.steps[today()]!==undefined)wins.push('записал шаги');if(state.swim[today()])wins.push('отметил бассейн');if((state.meals[today()]||[]).length)wins.push('записал домашнюю еду');if(state.plans[tomorrow()]?.accepted)wins.push('подготовил план на завтра');$('winsBox').textContent=wins.length?'Сегодня ты уже: '+wins.join(' · ')+'. Не нужно выполнять всё сразу.':'Даже один небольшой шаг уже помогает выстраивать привычку.'}
+const support={craving:'Перед сладким проверь: ты голоден, устал или хочется привычного вкуса? Если голоден — съешь обычный приём пищи или подходящий перекус. Запреты не должны превращаться в наказание.',offplan:'Никакой компенсации голодовкой и изнурительной тренировкой. Следующий приём пищи — обычный. Меняем завтрашний план, если нужно.',plateau:'Один или несколько дней без снижения веса — не доказательство плато. Сначала оцениваем тренд за несколько недель и качество данных, не уменьшая калории резко.',tired:'Усталость — повод упростить завтрашнее меню и оценить восстановление. При необычных симптомах или ухудшении переносимости нагрузки нужна медицинская оценка.'};
+function modal(open){$('modalCover').classList.toggle('open',open);if(open)$('fluidLimit').value=state.fluidLimit??''}
+$('headDate').textContent=pretty(today());$('settingsBtn').addEventListener('click',()=>modal(true));$('closeModal').addEventListener('click',()=>modal(false));$('modalCover').addEventListener('click',e=>{if(e.target===$('modalCover'))modal(false)});
+document.querySelectorAll('[data-nav]').forEach(b=>b.addEventListener('click',()=>openTab(b.dataset.nav)));
+document.querySelectorAll('[data-water]').forEach(b=>b.addEventListener('click',()=>{const ml=Number(b.dataset.water);state.water[today()]??=[];state.water[today()].push({ml,when:new Date().toISOString()});save();renderDay();if(state.fluidLimit&&waterTotal()>state.fluidLimit)toast('Отмечено больше записанного врачебного предела жидкости');else toast(`Отмечено +${ml} мл`)}));
+$('waterUndo').addEventListener('click',()=>{const e=state.water[today()]||[];if(e.length){e.pop();save();renderDay();toast('Последняя запись воды отменена')}});
+$('waterTile').addEventListener('click',()=>{$('waterCard').scrollIntoView({behavior:'smooth',block:'center'})});$('stepsTile').addEventListener('click',()=>{openTab('record');$('stepsInput').focus()});$('swimTile').addEventListener('click',()=>{openTab('record');$('swimMetres').focus()});$('foodTile').addEventListener('click',()=>openTab('record'));
+document.querySelectorAll('[data-mood]').forEach(b=>b.addEventListener('click',()=>{state.moods[today()]=b.dataset.mood;save();renderDay();toast('Самочувствие учтено. Никаких обязательных отчётов.')}));
+$('cameraBtn').addEventListener('click',()=>$('photoInput').click());$('photoInput').addEventListener('change',e=>{const f=e.target.files?.[0];if(!f)return;if(!f.type.startsWith('image/')){toast('Выбери файл изображения');return}if(f.size>35*1024*1024){toast('Фото слишком большое');return}pendingPhoto=f;if(previewUrl)URL.revokeObjectURL(previewUrl);previewUrl=URL.createObjectURL(f);$('photoPreview').src=previewUrl;$('photoPreview').style.display='block';toast('Фото выбрано. Для сохранения нажми «Сохранить приём пищи»')});
+$('analysePhoto').addEventListener('click',recognizeFood);
+$('mealCategory').addEventListener('change',renderFoodEstimate);
+$('knownGrams').addEventListener('input',renderFoodEstimate);
+$('extraOil').addEventListener('change',renderFoodEstimate);
+$('homeFoodChips').addEventListener('click',e=>{const b=e.target.closest('[data-foodchip]');if(!b)return;$('mealCategory').value=b.dataset.foodchip;recognitionResult=null;renderFoodEstimate()});
+$('portionChoices').addEventListener('click',e=>{const b=e.target.closest('[data-portion]');if(!b)return;chosenPortion=b.dataset.portion;$('knownGrams').value='';for(const item of document.querySelectorAll('[data-portion]'))item.classList.toggle('chosen',item===b);renderFoodEstimate()});
+$('aiCandidates').addEventListener('click',e=>{const b=e.target.closest('[data-aifood]');if(!b)return;$('mealCategory').value=b.dataset.aifood;recognitionResult.suggested=b.dataset.aifood;renderFoodEstimate();toast('Предположение выбрано. Проверь размер порции.')});
+$('photoInput').addEventListener('change',()=>{$('aiTroubleshoot').classList.add('hidden');$('aiConnectionResult').textContent='';recognitionResult=null;$('aiCandidates').classList.add('hidden');$('aiCandidates').innerHTML='';$('analysePhoto').disabled=!pendingPhoto;$('analysisStatus').textContent=pendingPhoto?'Фото готово. Можно попробовать ИИ или выбрать домашнее блюдо ниже.':'Сначала добавь фотографию.'});
+$('saveMeal').addEventListener('click',addMeal);$('mealEntries').addEventListener('click',async e=>{const b=e.target.closest('[data-delete]');if(!b)return;const id=b.dataset.delete;state.meals[today()]=(state.meals[today()]||[]).filter(x=>x.id!==id);save();await imageDelete(id);renderDay();renderMeals();toast('Запись удалена')});
+$('saveSteps').addEventListener('click',()=>{const input=$('stepsInput').value.trim(),n=Number(input);if(input===''||!Number.isInteger(n)||n<0||n>150000){toast('Введите количество шагов от 0 до 150 000');return}state.steps[today()]=n;save();renderDay();toast('Шаги сохранены')});$('skipSteps').addEventListener('click',()=>{toast('Шаги можно указать в любой момент')});
+$('saveSwim').addEventListener('click',()=>{const a=$('swimMetres').value.trim(),b=$('swimMinutes').value.trim(),m=a===''?null:Number(a),min=b===''?null:Number(b);if((m===null&&min===null)||(m!==null&&(!Number.isFinite(m)||m<=0||m>100000))||(min!==null&&(!Number.isFinite(min)||min<=0||min>600))){toast('Укажи реальную дистанцию или время бассейна');return}state.swim[today()]={m,min,feeling:$('swimFeeling').value,none:false};save();renderDay();toast('Плавание записано. Это факт, не целевая нагрузка')});$('noPool').addEventListener('click',()=>{state.swim[today()]={none:true};save();renderDay();toast('Сегодня без бассейна — это нормально')});
+document.querySelectorAll('[data-daymode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.daymode)));$('planMeals').addEventListener('click',e=>{const b=e.target.closest('[data-replace]');if(b)replacePlan(Number(b.dataset.replace))});$('acceptPlan').addEventListener('click',()=>{const p=getPlan();state.plans[tomorrow()]={indices:p.indices,accepted:true};save();renderPlan();renderProgress();toast('План на завтра сохранён')});
+$('saveWeight').addEventListener('click',()=>{const s=$('weightInput').value.trim(),v=Number(s.replace(',','.'));if(!s||!Number.isFinite(v)||v<35||v>300){toast('Введи реальный вес в килограммах');return}const vround=Math.round(v*10)/10;state.weights=state.weights.filter(x=>x.date!==today());state.weights.push({date:today(),kg:vround});state.weights.sort((a,b)=>a.date.localeCompare(b.date));save();renderDay();renderProgress();$('weightInput').value='';toast('Вес сохранён')});
+document.querySelectorAll('[data-support]').forEach(b=>b.addEventListener('click',()=>{$('supportAnswer').textContent=support[b.dataset.support];for(const c of document.querySelectorAll('[data-support]'))c.classList.toggle('chosen',c===b)}));
+$('saveSettings').addEventListener('click',()=>{const s=$('fluidLimit').value.trim(),n=Number(s);if(s!==''&&(!Number.isInteger(n)||n<100||n>6000)){toast('Проверь значение предела жидкости');return}state.fluidLimit=s===''?null:n;save();renderDay();modal(false);toast(s?'Сохранено ограничение, назначенное врачом':'Ограничение жидкости не задано')});
+$('exportData').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({product:'МЕТАБОЛИКА',version:'0.4',date:today(),data:state},null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`metabolika-backup-${today()}.json`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);toast('Резервная копия скачана. Фото в неё не входят.')});
+renderPlan();renderDay();renderProgress();renderMeals();
+})();
+</script>
+</body>
+</html>
